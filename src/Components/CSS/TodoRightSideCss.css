@@ -1,0 +1,26 @@
+*, *::before, ::after {
+    box-sizing: border-box;
+}
+
+body div {
+    width: 100%;
+}
+
+.rs-container {
+    display: flex;
+    right: 0;
+    flex-direction: column;
+    border-left: 1px solid wheat;
+    height: 100vmax;
+}
+
+.rs-container h3 {
+    border-bottom: 1px solid wheat;  
+    padding: 20px 0 10px 20px;  
+}
+
+.rs-container ol div {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+}

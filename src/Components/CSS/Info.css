@@ -1,0 +1,12 @@
+.info-container {
+    position: fixed;
+    color: black;
+    z-index: 99;
+    bottom: 30px;
+    right: 20px;
+    background-color: rgb(248, 240, 226);
+    height: 70px;
+    width: 300px;
+    border-radius: 10px;    
+}
+

@@ -1,0 +1,65 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    font-family: poppins;
+}
+
+.ls-container {
+    width: 40%;
+    max-width: 350px;
+    min-width: 300px;
+}
+
+.title-bloc {
+    border-bottom: 1px solid wheat;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.input-some-info {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    flex-direction: column;
+}
+
+input, .submit {
+    padding: 8px 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+
+.input-submit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    padding-right: 10px;
+}
+
+.submit {
+    margin-left: -20px;
+    background-color: orangered;
+    font-weight: 600;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.completed-tasks {
+    padding-left: 15px;
+    margin-top: 15px;
+}
+
+.completed-tasks h4 {
+    margin-bottom: -10px;
+}
+
+.completed-tasks ol {
+    padding-left: 15px;
+}
