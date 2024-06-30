@@ -7,10 +7,12 @@ let data
 const Todo = () => {
   const [todos, setTodos] = useState([])
   useEffect(()=> {
-    localStorage.setItem("todos", todos)
-    data = localStorage.getItem("todos")
+    // if (!localStorage.getItem("todos")) return
+    // setTodos((localStorage.getItem("todos")))
+    // data = localStorage.getItem("todos")
+    console.log(data, 121)
     // setTodos
-  }, [todos])
+  }, [])
   return (
     <div className='todo-container'>
       <TodoLeftSide

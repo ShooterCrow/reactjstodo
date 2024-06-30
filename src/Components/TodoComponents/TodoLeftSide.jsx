@@ -1,13 +1,33 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import '../CSS/TodoLeftSideCss.css'
 
+let data
 const TodoLeftSide = ({todos, setTodos}) => {
   let inputRef = useRef(null)
   const submit = () => {
-    if (!(inputRef.current.value)) return
-    setTodos([...todos, inputRef.current.value])
+    // if (!(inputRef.current.value)) return
+    // setTodos([...todos, inputRef.current.value])
+    localStorage.setItem("todos", inputRef.current.value)
     inputRef.current.value = ""
   }
+  
+  useEffect(()=> {
+    if (!localStorage.getItem("todos")) {
+      // localStorage.setItem("todos", todos)
+    }
+    if (localStorage.getItem("todos")) {
+      // setTodos((localStorage.getItem("todos")))
+      console.log(todos, 21)
+    }
+    // setTodos((localStorage.getItem("todos")))
+  }, [])
+  
+  useEffect(()=> {
+    if (!localStorage.getItem("todos")) return
+    data = localStorage.getItem("todos")
+    console.table(data)
+    // setTodos((localStorage.getItem("todos")))
+  }, [todos])
 
   return (
     <div className="ls-container">
