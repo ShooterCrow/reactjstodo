@@ -11,7 +11,12 @@ body div {
     right: 0;
     flex-direction: column;
     border-left: 1px solid wheat;
-    height: 100vmax;
+    height: 100vh;
+}
+
+h4 {
+    margin: 0 0 0 3px;
+    cursor: pointer;
 }
 
 .rs-container h3 {
@@ -22,5 +27,24 @@ body div {
 .rs-container ol div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-right: 20px;
+}
+
+.rs-container ol li {
+    width: 100%;
+    cursor: pointer;
+}
+
+.done {
+    color: chartreuse;
+}
+
+.nodisplay {
+    display: none !important;
+}
+
+.rsis {
+    display: flex;
+    justify-content: center;
 }

@@ -35,12 +35,12 @@ input, .submit {
 
 .input-submit {
     width: 100%;
-    display: flex;
-    justify-content: center;
+    margin: 0 0 0 20px;
 }
 
 input {
     padding-right: 10px;
+    width: 70%;
 }
 
 .submit {
@@ -62,4 +62,29 @@ input {
 
 .completed-tasks ol {
     padding-left: 15px;
+    color: chartreuse;
+    /* text-wrap: wrap; */
+}
+
+.completed-tasks ol li {
+    width: 50%;
+    /* text */
+}
+
+.i-in-un {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+}
+
+.updateUName {
+    position: fixed;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    
+}
+
+.sectionDisplayBtn {
+    width: max-content;
 }
