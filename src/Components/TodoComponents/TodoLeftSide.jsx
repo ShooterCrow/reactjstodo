@@ -62,6 +62,7 @@ const TodoLeftSide = ({ todos, setTodos, updateInfo, popControl, setPopControl, 
             submit={submit}
             classer={"input-submit"}
             innerText={"Submit"}
+            
           />
           <div className="completed-tasks">
             {importantNotes.length === 0 ? <h4>No Notes Added to Important</h4> : <h4>Important Notes</h4>}
