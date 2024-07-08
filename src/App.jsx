@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 let display = false
 let justDeletedTodo
 let editInput
+let currentNote
 const App = () => {
   const [todos, setTodos] = useState([])
   const [infoTitle, setInfoTitle] = useState("Welcome")
@@ -30,6 +31,7 @@ const App = () => {
   const edit = (e) => {
     setCl([...cl, parseInt(e.target.id)])
     editInput = e.target.parentElement.parentElement.parentElement.children[2]
+    currentNote = e.target
     editInput.children[0].innerText = ""
     setFieldValue(e.target.innerText)
     // 
@@ -107,6 +109,7 @@ const App = () => {
           setImportantNotes={setImportantNotes}
           edit={edit}
           fieldValue={fieldValue}
+          currentNote={currentNote}
         />
         <Info
           displayPop={displayPop}

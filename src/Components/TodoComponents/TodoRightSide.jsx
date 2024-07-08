@@ -2,10 +2,15 @@ import { useRef } from 'react'
 import '../CSS/TodoRightSideCss.css'
 import InputSubmit from './inputSubmit'
 
-const TodoRightSide = ({ todos, deleteTodo, addToImportant, edit, fieldValue }) => {
+const TodoRightSide = ({ setTodos, todos, deleteTodo, addToImportant, edit, fieldValue, currentNote }) => {
   const todoDiv = useRef(null)
-  const update = () => {
-    console.log(500333)
+  const update = (e) => {
+    console.log(fieldValue, edit)
+    todos.splice(currentNote.id,1)
+
+    todos.unshift(e.target.parentElement.children[0].value)
+    localStorage.setItem("todos", JSON.stringify(todos))
+    setTodos(JSON.parse(localStorage.getItem("todos")))
   }
   return (
     <div>
@@ -29,7 +34,7 @@ const TodoRightSide = ({ todos, deleteTodo, addToImportant, edit, fieldValue }) 
           innerText={"Edit"}
           value={fieldValue}
           classer={"nodisplay rsis"}
-          update={update}
+          submit={update}
         />
       </div>
     </div>

@@ -12,7 +12,6 @@ const TodoLeftSide = ({ todos, setTodos, updateInfo, popControl, setPopControl, 
     setTodos([...todos, e.target.parentElement.children[0].value])
     updateInfo(e.target.parentElement.children[0].value, 1)
     e.target.parentElement.children[0].value = ""
-    console.log(e.target.parentElement.children[0].value)
   }
 
   const addUserName = (e) => {
@@ -62,7 +61,7 @@ const TodoLeftSide = ({ todos, setTodos, updateInfo, popControl, setPopControl, 
             submit={submit}
             classer={"input-submit"}
             innerText={"Submit"}
-            
+
           />
           <div className="completed-tasks">
             {importantNotes.length === 0 ? <h4>No Notes Added to Important</h4> : <h4>Important Notes</h4>}
