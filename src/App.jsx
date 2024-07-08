@@ -1,10 +1,11 @@
 import Info from './Components/Info'
 import Todo from './Components/TodoComponents/Todo'
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 let display = false
 let justDeletedTodo
+let editInput
 const App = () => {
   const [todos, setTodos] = useState([])
   const [infoTitle, setInfoTitle] = useState("Welcome")
@@ -12,10 +13,11 @@ const App = () => {
   const [popControl, setPopControl] = useState(false)
   const [importantNotes, setImportantNotes] = useState([])
   const [fieldValue, setFieldValue] = useState("")
+  const [cl, setCl] = useState([])
 
   const addToImportant = (e) => {
     if (importantNotes.includes(e.target.innerText)) {
-      let rest = importantNotes.filter((x)=> x!==e.target.innerText)
+      let rest = importantNotes.filter((x) => x !== e.target.innerText)
       setImportantNotes(rest)
     } else if (!importantNotes.includes(e.target.innerText)) {
       setImportantNotes([...importantNotes, e.target.innerText])
@@ -26,12 +28,31 @@ const App = () => {
   }
 
   const edit = (e) => {
-    let editInput = e.target.parentElement.parentElement.parentElement.children[2]
+    setCl([...cl, parseInt(e.target.id)])
+    editInput = e.target.parentElement.parentElement.parentElement.children[2]
+    editInput.children[0].innerText = ""
     setFieldValue(e.target.innerText)
-    console.log(editInput.classList)
-    // if (!editInput.classList.includes("nodisplay"))
-    editInput.classList.toggle("nodisplay")
+    // 
   }
+
+  // Useeffect for input display bejavioors
+  useEffect(() => {
+    if (!editInput) return
+    editInput.classList.remove("nodisplay")
+    if (cl.length > 3) {
+      cl.shift()
+    }
+    if (cl.length > 0) {
+      if (cl.length === 0 || cl[cl.length - 1] === cl[cl.length-2]) {
+        editInput.classList.add("nodisplay")
+        if (cl[cl.length - 1] === cl[cl.length-2] && cl[cl.length - 2] === cl[cl.length-3]) {
+          editInput.classList.remove("nodisplay")
+          return
+        } 
+        return
+      } 
+    }
+  }, [cl])
 
 
   const updateInfo = (data, status) => {
@@ -62,7 +83,7 @@ const App = () => {
     setTodos(JSON.parse(localStorage.getItem("todos")))
     updateInfo(justDeletedTodo, 0)
   }
-  
+
   const displayPop = (e) => {
     e.classList.remove("nodisplay")
     setTimeout(() => {
