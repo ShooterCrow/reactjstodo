@@ -17,11 +17,11 @@ const App = () => {
   const [cl, setCl] = useState([])
 
   const addToImportant = (e) => {
+    let data = importantNotes.filter(x=>x.id!==e.target.id)
+    console.log(data)
     if (importantNotes.includes(e.target.innerText)) {
-      let rest = importantNotes.filter((x) => x !== e.target.innerText)
-      setImportantNotes(rest)
     } else if (!importantNotes.includes(e.target.innerText)) {
-      setImportantNotes([...importantNotes, e.target.innerText])
+      setImportantNotes([...importantNotes, { text: e.target.innerText, id: e.target.id }])
     }
     e.target.classList.toggle("done")
     updateInfo(e.target.innerText, 2)
@@ -45,14 +45,14 @@ const App = () => {
       cl.shift()
     }
     if (cl.length > 0) {
-      if (cl.length === 0 || cl[cl.length - 1] === cl[cl.length-2]) {
+      if (cl.length === 0 || cl[cl.length - 1] === cl[cl.length - 2]) {
         editInput.classList.add("nodisplay")
-        if (cl[cl.length - 1] === cl[cl.length-2] && cl[cl.length - 2] === cl[cl.length-3]) {
+        if (cl[cl.length - 1] === cl[cl.length - 2] && cl[cl.length - 2] === cl[cl.length - 3]) {
           editInput.classList.remove("nodisplay")
           return
-        } 
+        }
         return
-      } 
+      }
     }
   }, [cl])
 

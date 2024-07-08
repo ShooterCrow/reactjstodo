@@ -70,7 +70,7 @@ const TodoLeftSide = ({ todos, setTodos, updateInfo, popControl, setPopControl, 
                 return <li
                 key={i}
                 id={i}
-                >{x}</li>
+                >{x.text}</li>
               })}
               {/* <li>{importantNotes} </li>
               <li>Learn React</li>
